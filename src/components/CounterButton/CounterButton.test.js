@@ -15,9 +15,7 @@ it('crectly increments the counter', () => {
     expect(wrapper.state()).toEqual({count:1})
     wrapper.find('[id="counter"]').simulate('click');
     expect(wrapper.state()).toEqual({count:2})
-
-
-    
+    expect(wrapper.instance().props.color).toEqual('red')
 })
 
 
