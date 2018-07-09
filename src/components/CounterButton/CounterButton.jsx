@@ -23,10 +23,14 @@ import React,{Component} from 'react'
     }
     
     render(){
-        console.log('counter')
         return (
             <div>
-              <button color={this.props.color} onClick={this.updateCount}>Count:{this.state.count}</button>
+              <button 
+              color={this.props.color} 
+              onClick={this.updateCount}
+              id='counter'>
+                Count:{this.state.count}
+              </button>
             </div>
           )
     }
