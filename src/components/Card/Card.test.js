@@ -1,13 +1,9 @@
-import {shallow, mount, render} from 'enzyme';
+import {shallow} from 'enzyme';
 import Card from './Card';
 import React from 'react';
 
 
 
-
-
-
-it('how many component',()=> {
-    expect(shallow(<Card />).length).toEqual(1)
+it('expect to render Card component',()=> {
+    expect(shallow(<Card />)).toMatchSnapshot();
 })
-
