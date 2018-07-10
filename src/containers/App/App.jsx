@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import CardList from '../../components/CardList/CardList';
-import Searchbox from '../../components/Searchbox/Searchbox';
 import './App.css';
-import Header from '../../components/Header/Header'
 import { setSearchFieldAction,requestRobots } from './actions';
 import { connect } from 'react-redux';
+import MainPage from '../../components/MainPage/MainPage';
 
 
 if (process.env.NODE_ENV !== 'production') {
@@ -33,10 +31,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class App extends Component {
-	
-	componentDidMount(){
-		this.props.onRequestRobots()
-	}
 
 	// componentDidMount() {
 	// 	fetch('https://jsonplaceholder.typicode.com/users')
@@ -50,20 +44,14 @@ class App extends Component {
 	// }
 
 	render() {
-		const filteredRobots = this.props.robots.filter((robot) => {
-			return robot.name.toLowerCase().includes(this.props.searchField.toLowerCase());
-		});
-		if (this.props.isPending) {
-			return <div className="tc">...loading</div>;
-		} else {
-			return (
-				<div className="tc">
-					<Header />
-					<Searchbox onChangeText={this.props.onChangeText} />
-					<CardList robots={filteredRobots} />
-				</div>
-			);
-		}
+		return(
+			<MainPage 
+			onRequestRobots = {this.props.onRequestRobots}
+			onChangeText = {this.props.onChangeText}
+			robots={this.props.robots}
+			searchField={this.props.searchField}
+			/>
+		)
 	}
 }
 
