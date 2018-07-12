@@ -1,11 +1,10 @@
 import React from 'react';
-import {shallow, mount, render} from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
 
+const Card = ({ id, name, email }) => {
 
-
-
-const Card = ({id,name,email}) => {
 	
+
 	return (
 		<div className="bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5 tc">
 			<div>
